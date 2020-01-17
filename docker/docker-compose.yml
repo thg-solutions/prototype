@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.4.8
+    environment:
+      MYSQL_DATABASE: tom
+      MYSQL_USER: tom
+      MYSQL_PASSWORD: tom
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    ports:
+      - 3306:3306
+    volumes:
+      - ./dbdata:/docker-entrypoint-initdb.d
+    # healthcheck:
+      # test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
+      # interval: 3s
+      # retries: 10
+  prototype:
+    image: prototype:v1
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    restart: on-failure
