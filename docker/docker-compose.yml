@@ -1,4 +1,4 @@
-version: '3.7'
+version: '2.4'
 services:
   mariadb:
     container_name: mariadb
@@ -12,14 +12,15 @@ services:
       - 3306:3306
     volumes:
       - ./dbdata:/docker-entrypoint-initdb.d
-    # healthcheck:
-      # test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
-      # interval: 3s
-      # retries: 10
+    healthcheck:
+      test: mysqlshow -u $$MYSQL_USER -p$$MYSQL_PASSWORD
+      interval: 10s
+      retries: 10
   prototype:
+    container_name: prototype
     image: prototype:v1
     ports:
       - 8080:8080
     depends_on:
-      - mariadb
-    restart: on-failure
+      mariadb:
+        condition: service_healthy
