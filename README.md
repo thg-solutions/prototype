@@ -4,16 +4,16 @@ Diese Beispielanwendung testet zum einen JPA mit Spring Boot, besonders die auto
 `findXXXbyYYY` bei Verwendeung von `CrudRepository`. Um die Implementierung eines FrontEnds zu vermeiden werden
 ausschließlich Methoden verwendet, die über den GET-Request erreicht werden können. 
  
-Zum anderen wird die Kommunikation zwier Docker-Container demonstriert. Dazu wird die Anwendung in ein Docker-Image 
+Zum anderen wird die Kommunikation zweier Docker-Container demonstriert. Dazu wird die Anwendung in ein Docker-Image 
 gepackt und greift auf eine Datenbank zu, die sich in einem anderen Container befindet. Hier kommt eine aktuelle 
-Version von MariaDB zum Einsatz. Für die Tests wird sattdessen die InMemory-Datenbank H2 verwendet.
+Version von MariaDB zum Einsatz. Für die Tests wird stattdessen die InMemory-Datenbank H2 verwendet.
  
 Zusätzlich (und ebenfalls testhalber) wird `spring-boot-starter-hateoas` eingebunden, um die
 auto-generierten `RestResources` mit den für HATEOAS typischen Links zu versehen. Dieser Ansatz kollidiert leider mit
 der Einbindung von Swagger (`springfox-swagger2`), da die aktuelle Version 2.9.2 nicht zur aktuellen Version von
 Spring HATEOAS kompatibel ist. Da SpringFox Swagger auch früher schon Probleme mit Spring Boot
-`RepositoryRestResource` hatte bleibt leider nur, auf eine neue Version der Swagger-Implementierung zu warten. Die n
-ötigen Dependencies sind in `build.gradle` enthalten, aber auskommentiert.
+`RepositoryRestResource` hatte bleibt leider nur, auf eine neue Version der Swagger-Implementierung zu warten. Die 
+nötigen Dependencies sind in `build.gradle` enthalten, aber auskommentiert.
  
 ## Artefakt und Container Image bauen
 
