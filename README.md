@@ -30,7 +30,7 @@ geschieht in der Datet `test/resources/application-test.properties`, die durch d
 ```
 testet und baut die Applikation.
 ```
-~/prototype$ docker build . -t prototype:v1
+~/prototype$ docker build -f docker/Dockerfile -t prototype:v1 .
 ```
 erzeugt daraus ein Docker-Image.
 
