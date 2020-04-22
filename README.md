@@ -1,7 +1,7 @@
 # prototype
 
 Diese Beispielanwendung testet zum einen JPA mit Spring Boot, besonders die automatisch implementierten Methoden
-`findXXXbyYYY` bei Verwendeung von `CrudRepository`. Um die Implementierung eines FrontEnds zu vermeiden werden
+`findXXXbyYYY` bei Verwendeung von `CrudRepository`. Um die Implementierung eines Frontends zu vermeiden werden
 ausschließlich Methoden verwendet, die über den GET-Request erreicht werden können. 
  
 Zum anderen wird die Kommunikation zweier Docker-Container demonstriert. Dazu wird die Anwendung in ein Docker-Image 
